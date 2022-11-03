@@ -1,0 +1,47 @@
+<form [formGroup]="registerForm" method="post" (ngSubmit)="onSubmit()"
+    style="background-color: rgb(255, 255, 255); padding: 30px;" id="formID">
+
+
+    <!--name-->
+    <div class="col-12 col-sm-6 col-md-6">
+        <div class="col-11">
+            <label for="user" class="form-label">Username</label>
+            <input type="text" class="form-control" placeholder="user" formControlName="user"
+                [class.is-invalid]="USER?.invalid && USER?.touched">
+            <div *ngIf="USER?.errors && USER?.touched">
+                <small class="text-danger" *ngIf="USER?.errors?.['required']">required</small>
+                <small class="text-danger" *ngIf="USER?.errors?.['minlength']">min. 2 char</small>
+            </div>
+        </div>
+    </div>
+
+    <!--email-->
+    <div class="col-12 col-sm-6 col-md-6">
+        <div class="col-11">
+            <label for="email" class="form-label">Email</label>
+            <input type="text" class="form-control" placeholder="email" formControlName="email"
+                [class.is-invalid]="EMAIL?.invalid && EMAIL?.touched">
+            <div *ngIf="EMAIL?.errors && EMAIL?.touched">
+                <small class="text-danger" *ngIf="EMAIL?.errors?.['required']">required</small>
+                <small class="text-danger" *ngIf="EMAIL?.errors?.['minlength']">min. 2 char</small>
+            </div>
+        </div>
+    </div>
+
+    <!--password-->
+    <div class="col-12 col-sm-6 col-md-6" style="margin-bottom: 20px;">
+        <div class="col-11">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" placeholder="password" formControlName="password"
+                [class.is-invalid]="PASSWORD?.invalid && PASSWORD?.touched">
+            <div *ngIf="PASSWORD?.errors && PASSWORD?.touched">
+                <small class="text-danger" *ngIf="PASSWORD?.errors?.['required']">required</small>
+                <small class="text-danger" *ngIf="PASSWORD?.errors?.['pattern']">min. 10 char</small>
+            </div>
+        </div>
+    </div>
+
+
+    <button type="submit" style="margin-left: 30px;" class="btn btn-primary"
+        [disabled]="USER?.invalid || EMAIL?.invalid || PASSWORD?.invalid">Register</button>
+</form>
