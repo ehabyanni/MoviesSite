@@ -11,18 +11,11 @@ export class MoviesService {
 
   public _url = 'https://test-api.storexweb.com/api/movies';
   
-  public _urlC = 'https://test-api.storexweb.com/api/category';
-
   movies:any = [];
-  categories:any = [];
 
   getAllMovies():Observable<any>{
     this.movies = this.http.get(this._url);
     return this.movies;
   }
 
-  getAllCategories():Observable<any>{
-    this.categories = this.http.get(this._urlC);
-    return this.categories;
-  }
 }
