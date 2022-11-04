@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MoviesService } from '../services/movies.service';
+import { CategoriesService } from '../services/categories.service';
 
 @Component({
   selector: 'app-movie-details',
@@ -14,11 +15,14 @@ export class MovieDetailsComponent implements OnInit {
     private http:HttpClient,
     private movies:MoviesService,
     private activeRoute:ActivatedRoute,
-    private route:Router
+    private route:Router,
+    private catService:CategoriesService
     ) { }
 
     movie_id: any ;
     movie: any = {};
+
+    category_id:any = {};
 
   ngOnInit(): void {
     //check if the user authenticated or not
@@ -35,6 +39,22 @@ export class MovieDetailsComponent implements OnInit {
         console.log(this.movie)
       }
     )
+
+    this.catService.getAllCategories().subscribe(
+      data => {
+        this.category_id = data.message.find( (c:any) => c.id == this.movie.category_id);
+        console.log(this.movie.category_id);
+        console.log(this.category_id);
+      }
+    )
+    
   }
+
+    //log out
+    logOut() {
+      console.log('bye');
+      localStorage.clear();
+      this.route.navigate(['login']);
+    }
 
 }

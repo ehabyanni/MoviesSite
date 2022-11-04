@@ -1,15 +1,32 @@
+<div class="container-fluid">
+    <div class="container">
+        <div class="row head">
+            <div class="col-6">
+                <p>StorexWeb</p>
+            </div>
+            <div class="col-6">
+                <button type="button" class="btn-sm btn btn-success" (click)="logOut()">LogOut</button>
+            </div>
+        </div>
+    </div>
+</div>
 
+<div class="container-fluid con1">
+    <div class="container con2">
+        <div class="row details">
+            <div class="col-5">
+                <img src="https://test-api.storexweb.com/{{movie.image}}" alt="Card image" style="height: 170px;">
 
-
-<img  src="https://test-api.storexweb.com/{{movie.image}}" alt="Card image"
-    style="height: 170px;">
-
-<h4>id : {{movie.id}}</h4>
-<h2>name : {{movie.name}}</h2>
-<p>desc : {{movie.description}}</p>
-<p>cat_id : {{movie.category_id}}</p>
-
-
-&nbsp;
-&nbsp;
-<a routerLink="/home">back to home</a>
+            </div>
+            <div class="col-7">
+                <!-- <h4>id : {{movie.id}}</h4> -->
+                <h2><span style="font-size: 16px !important;">Title:</span> {{movie.name}}</h2>
+                <p><span style="font-size: 16px !important;">Desc:</span> {{movie.description}}</p>
+                <p><span style="font-size: 16px !important;">Category:</span> {{category_id.name}}</p>
+            </div>
+        </div>
+        <div class="row backHome">
+            <a routerLink="/home">back to home</a>
+        </div>
+    </div>
+</div>

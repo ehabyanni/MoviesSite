@@ -6,6 +6,7 @@ import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
+  {path: ''            , component:HomeComponent},
   {path: "login"       , component:LoginComponent},
   {path: "register"    , component:RegisterComponent},
   {path: "home"        , component:HomeComponent},
