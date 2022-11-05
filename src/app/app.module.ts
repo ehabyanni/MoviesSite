@@ -14,6 +14,7 @@ import { AuthInterceptor } from './helpers/auth.interceptor';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { HeaderComponent } from './header/header.component';
 import { CreateMovieComponent } from './create-movie/create-movie.component';
+import { EditMovieComponent } from './edit-movie/edit-movie.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { CreateMovieComponent } from './create-movie/create-movie.component';
     HomeComponent,
     MovieDetailsComponent,
     HeaderComponent,
-    CreateMovieComponent
+    CreateMovieComponent,
+    EditMovieComponent
   ],
   imports: [
     BrowserModule,

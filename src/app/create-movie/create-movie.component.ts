@@ -67,13 +67,11 @@ export class CreateMovieComponent implements OnInit {
   formData = new FormData();
 
   //upload image
-  imageUploadedSuccess:boolean = false;
   imageUpload(event: any) {
     if(event.target.files.length > 0){
       const file = event.target.files[0];
       console.log(file);
       this.formData.append('', file);
-      this.imageUploadedSuccess = true;
     }
   }
 

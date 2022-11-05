@@ -55,7 +55,14 @@ export class MovieDetailsComponent implements OnInit {
   //Edit Movie
   movieEditor(){
     //console.log(this.movie.id);
-    this.route.navigate(['movies', this.movie.id]);
+    this.route.navigate(['edit-movie', this.movie.id]);
+  }
+
+  //delete Movie
+  deleteMovie(){
+    //this.movies.deleteMovie(this.movie.id);
+    //window.open('/home' , '_self')
+    console.log(this.movie.id);
   }
 
 }

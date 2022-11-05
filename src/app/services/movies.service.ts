@@ -12,27 +12,30 @@ export class MoviesService {
   public _url  = 'https://test-api.storexweb.com/api/movies';
 
   public _url2 = 'https://test-api.storexweb.com/api/moviesByCategory/';
-  
-  movies:any = [];
 
-  newMovie:any = {};
 
   //show all movies
   getAllMovies():Observable<any>{
-    this.movies = this.http.get(this._url);
-    return this.movies;
+    return this.http.get(this._url);
   }
 
   //show movies by category
   getCatMovies(id:any):Observable<any>{
-    this.movies = this.http.get(this._url2 + id);
-    return this.movies;
+    return  this.http.get(this._url2 + id);
   }
 
   //post new movie
   createMovie(movie : any):Observable<any>{
-    this.newMovie = this.http.post<any>(this._url , movie);
-    return this.newMovie
+    return this.http.post<any>(this._url , movie);
   }
+
+  EditMovie(id:any , movie:any){
+    return this.http.put(this._url + "/" + id , movie);
+  }
+
+  //delete movie
+  // deleteMovie(id : number){
+  //   return this.http.delete<any>(this._url + "/" + id);
+  // }
 
 }
