@@ -1,28 +1,23 @@
-<div class="container-fluid">
-    <div class="container">
-        <div class="row head">
-            <div class="col-6">
-                <p>StorexWeb</p>
-            </div>
-            <div class="col-6">
-                <button type="button" class="btn-sm btn btn-success" (click)="logOut()">LogOut</button>
-            </div>
-        </div>
-    </div>
-</div>
+<app-header></app-header>
 
 <div class="container-fluid con1">
     <div class="container con2">
+        <div class="row" style="padding: 10px;">
+            <div class="col-12" style=" margin-left:12%">
+                <button type="button" class="btn btn-primary" (click)="movieEditor()">Edit</button>
+                &nbsp;
+                <button type="button" class="btn btn-danger">Delete</button>
+            </div>
+        </div>
         <div class="row details">
             <div class="col-5">
-                <img src="https://test-api.storexweb.com/{{movie.image}}" alt="Card image" style="height: 170px;">
-
+                <img src="https://test-api.storexweb.com/{{movie.image}}" alt="Card image">
             </div>
             <div class="col-7">
                 <!-- <h4>id : {{movie.id}}</h4> -->
-                <h2><span style="font-size: 16px !important;">Title:</span> {{movie.name}}</h2>
-                <p><span style="font-size: 16px !important;">Desc:</span> {{movie.description}}</p>
-                <p><span style="font-size: 16px !important;">Category:</span> {{category_id.name}}</p>
+                <h2><span style="font-size: 16px !important; font-weight: lighter;">Title:</span> {{movie.name}}</h2>
+                <p><span style="font-size: 16px !important; font-weight: lighter;">Desc:</span> {{movie.description}}</p>
+                <p><span style="font-size: 16px !important; font-weight: lighter;">Category:</span> {{category_id.name}}</p>
             </div>
         </div>
         <div class="row backHome">

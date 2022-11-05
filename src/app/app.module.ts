@@ -12,6 +12,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AuthInterceptor } from './helpers/auth.interceptor';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
+import { HeaderComponent } from './header/header.component';
+import { CreateMovieComponent } from './create-movie/create-movie.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { MovieDetailsComponent } from './movie-details/movie-details.component';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    MovieDetailsComponent
+    MovieDetailsComponent,
+    HeaderComponent,
+    CreateMovieComponent
   ],
   imports: [
     BrowserModule,

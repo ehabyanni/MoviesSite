@@ -1,22 +1,9 @@
-<div class="container-fluid">
-    <div class="container">
-        <div class="row head">
-            <div class="col-6">
-                <p>StorexWeb</p>
-            </div>
-            <div class="col-6">
-                <button type="button"  class="btn-sm btn btn-success" (click)="logOut()">LogOut</button>
-            </div>
-        </div>
-    </div>
-</div>
-&nbsp;
-&nbsp;
+<app-header></app-header>
 <div class="container-fluid">
     <div class="container" style="padding-top: 20px;">
         <div class="row" style="margin-bottom: 50px;">
             <select class="form-select" aria-label="Default select example" style="width: 400px; margin: auto; text-align: center;" (change)="showCategory($event)">
-                <option value=""> - All Movies -</option>
+                <option value="all"> - All Movies -</option>
                 <option value="{{cat.id}}" *ngFor="let cat of allCategories">
                     {{cat.name}}
                 </option>
@@ -28,7 +15,7 @@
                     <img class="card-img-top" src="https://test-api.storexweb.com/{{movie.image}}" alt="Card image">
                     <div class="card-body">
                         <p class="card-text name">{{movie.name}}</p>
-                        <p class="card-text decs">{{movie.description}}</p>
+                        <p class="card-text desc">{{movie.description}}</p>
                     </div>
                 </div>
             </div>

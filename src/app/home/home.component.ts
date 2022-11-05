@@ -62,35 +62,29 @@ export class HomeComponent implements OnInit {
   //show by category
   showCategory(event: any) {
     var categorySelected = event.target.value;
-    console.log(categorySelected);
-    if (categorySelected != null || undefined || "") {
-      this.movies.getCatMovies(categorySelected).subscribe(
-        data => {
-          this.allMovies = data.message;
+    //console.log(categorySelected);
+    if (categorySelected === 'all'){
+      //show all movies
+      this.movies.getAllMovies().subscribe(
+        dataMovies => {
+          this.allMovies = dataMovies.message;
           console.log(this.allMovies);
         }
       )
     }
-    else{
-      this.movies.getAllMovies().subscribe(
-        data => {
-          this.allMovies = data.message;
-          console.log(this.allMovies);
-        }
-      )
+    else if (categorySelected != null || undefined) {
+        this.movies.getCatMovies(categorySelected).subscribe(
+          data => {
+            this.allMovies = data.message;
+            console.log(this.allMovies);
+          }
+        )
     }
   }
 
   //movie page
   goToMovieDetails(id: any) {
     this.route.navigate(['movies', id]);
-  }
-
-  //log out
-  logOut() {
-    console.log('bye');
-    localStorage.clear();
-    this.route.navigate(['login']);
   }
 
 }

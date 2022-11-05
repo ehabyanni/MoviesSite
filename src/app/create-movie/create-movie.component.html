@@ -1,0 +1,78 @@
+<app-header></app-header>
+
+<div class="container-fluid">
+    <div class="container" style=" padding-top: 20px; padding-bottom: 20px;">
+        <div class="row" style="background-color: white;">
+            <form [formGroup]="NewMovieForm" method="post" style="background-color: rgb(255, 255, 255); padding: 50px;"
+                id="formID" (ngSubmit)="onSubmit()">
+                <div class="row">
+                    <!--name-->
+                    <div class="col-12 col-sm-12 col-md-6">
+                        <div class="col-11">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="name" placeholder="movie name"
+                                formControlName="name" [(ngModel)]="newMovieData.name" [class.is-invalid]="NAME?.invalid && NAME?.touched">
+                            <div *ngIf="NAME?.errors && NAME?.touched">
+                                <small class="text-danger" *ngIf="NAME?.errors?.['required']">required !</small>
+                                <small class="text-danger" *ngIf="NAME?.errors?.['minlength']">minimum 5 letters</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--description-->
+                    <div class="col-12 col-sm-12 col-md-6" style="margin-bottom: 20px;">
+                        <div class="col-11">
+                            <label for="description" class="form-label">Description</label>
+                            <input type="text" class="form-control" id="description" placeholder="description"
+                                formControlName="description" [(ngModel)]="newMovieData.description"
+                                [class.is-invalid]="DESCRIPTION?.invalid && DESCRIPTION?.touched">
+                            <div *ngIf="DESCRIPTION?.errors && DESCRIPTION?.touched">
+                                <small class="text-danger" *ngIf="DESCRIPTION?.errors?.['required']">required</small>
+                                <small class="text-danger" *ngIf="DESCRIPTION?.errors?.['pattern']">minimum 10
+                                    letters</small>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <!--image-->
+                    <div class="col-12 col-sm-12 col-md-6" style="margin-bottom: 20px;">
+                        <div class="col-11">
+                            <label for="image" class="form-label">Image</label>
+                            <!-- <input type="file" class="form-control" id="image" placeholder="image"
+                                formControlName="image" [class.is-invalid]="IMAGE?.invalid && IMAGE?.touched" (change)="imageUpload($event)">
+                            <div *ngIf="IMAGE?.errors && IMAGE?.touched">
+                                <small class="text-danger" *ngIf="IMAGE?.errors?.['required']">required</small>
+                            </div> -->
+                            <input type="file" class="form-control" id="image" placeholder="image"
+                            formControlName="image" required (change)="imageUpload($event)">
+                        </div>
+                    </div>
+
+                    <!--category_id-->
+                    <div class="col-12 col-sm-6 col-md-6">
+                        <div class="col-11">
+                            <label for="category_id" class="form-label">Category</label>
+                            <select class="form-select" aria-label="Default select example" placeholder="select category"
+                                formControlName="category_id" class="form-select"
+                                [class.is-invalid]="CATEGORY_ID?.invalid && CATEGORY_ID?.dirty" [(ngModel)]="newMovieData.category_id">
+                                <option value="{{cat.id}}" *ngFor="let cat of categories">
+                                    {{cat.name}}
+                                </option>
+                            </select>
+                            <small class="text-danger"
+                                *ngIf="CATEGORY_ID?.invalid && CATEGORY_ID?.dirty">required</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!--create button-->
+               <div class="row" style="padding-top: 50px;">
+                 <button type="submit" style="margin: auto;" class="btn btn-primary col-1"
+                 [disabled]="NAME?.invalid || DESCRIPTION?.invalid || CATEGORY_ID?.invalid">Create</button>
+               </div>
+            </form>
+        </div>
+    </div>
+</div>

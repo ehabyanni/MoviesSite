@@ -20,6 +20,7 @@ export class MovieDetailsComponent implements OnInit {
     ) { }
 
     movie_id: any ;
+
     movie: any = {};
 
     category_id:any = {};
@@ -28,7 +29,7 @@ export class MovieDetailsComponent implements OnInit {
     //check if the user authenticated or not
     var token = localStorage.getItem('authToken');
     if(token == null || undefined){
-      this.route.navigate(['login']);
+      this.route.navigate(['/login']);
     }
 
     this.movie_id = this.activeRoute.snapshot.paramMap.get('id');
@@ -36,25 +37,25 @@ export class MovieDetailsComponent implements OnInit {
     this.movies.getAllMovies().subscribe(
       data => {
         this.movie = data.message.find( (e:any) => e.id == this.movie_id);
-        console.log(this.movie)
+        //console.log(this.movie)
       }
     )
 
     this.catService.getAllCategories().subscribe(
       data => {
         this.category_id = data.message.find( (c:any) => c.id == this.movie.category_id);
-        console.log(this.movie.category_id);
-        console.log(this.category_id);
+        console.log(this.movie);
+        //console.log(this.category_id);
       }
     )
     
   }
 
-    //log out
-    logOut() {
-      console.log('bye');
-      localStorage.clear();
-      this.route.navigate(['login']);
-    }
+
+  //Edit Movie
+  movieEditor(){
+    //console.log(this.movie.id);
+    this.route.navigate(['movies', this.movie.id]);
+  }
 
 }
