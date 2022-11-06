@@ -105,6 +105,8 @@ export class EditMovieComponent implements OnInit {
     this.formDataEdit.append('category_id', this.EditMovieData.category_id);
 
     var imageCheck = this.formDataEdit.get('image');
+
+    console.log(this.EditMovieData);
     
     if(imageCheck != null || undefined){
       console.log(this.formDataEdit.get('name'));
@@ -126,7 +128,7 @@ export class EditMovieComponent implements OnInit {
         }
       );
     }
-  }
+   }
 
 
   //cancel
