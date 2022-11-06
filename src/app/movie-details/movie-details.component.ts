@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MoviesService } from '../services/movies.service';
 import { CategoriesService } from '../services/categories.service';
+import { HtmlParser } from '@angular/compiler';
 
 @Component({
   selector: 'app-movie-details',
@@ -45,7 +46,6 @@ export class MovieDetailsComponent implements OnInit {
       data => {
         this.category_id = data.message.find( (c:any) => c.id == this.movie.category_id);
         console.log(this.movie);
-        //console.log(this.category_id);
       }
     )
     
@@ -54,15 +54,17 @@ export class MovieDetailsComponent implements OnInit {
 
   //Edit Movie
   movieEditor(){
-    //console.log(this.movie.id);
     this.route.navigate(['edit-movie', this.movie.id]);
   }
 
   //delete Movie
   deleteMovie(){
-    //this.movies.deleteMovie(this.movie.id);
-    //window.open('/home' , '_self')
-    console.log(this.movie.id);
+    console.log(this.movie_id)
+    this.movies.deleteMovie(this.movie_id).subscribe(
+      () => {
+        this.route.navigate(['/home']);
+      }
+    );
   }
 
 }

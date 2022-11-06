@@ -4,7 +4,7 @@
     <div class="container" style=" padding-top: 20px; padding-bottom: 20px;">
         <div class="row" style="background-color: white;">
             <form [formGroup]="movieForm" method="post" style="background-color: rgb(255, 255, 255); padding: 50px;"
-                id="formID" (ngSubmit)="onSubmit()">
+                id="formID" (ngSubmit)="onEditSubmit()">
                 <div class="row">
                     <!--name-->
                     <div class="col-12 col-sm-12 col-md-6">
@@ -70,16 +70,15 @@
                 </div>
 
                 <!--create button-->
-                <div class="row" style="padding-top: 50px;">
-                    <div class="div" style="display:flex; justify-content: center; align-items: center;">
-
-                        <button type="button" class="btn btn-secondary col-1" (click)="cancelEdit()">Cancel</button>
-                        &nbsp;
-                        &nbsp;
-                        <button type="submit" class="btn btn-primary col-1"
-                            [disabled]="NAME?.invalid || DESCRIPTION?.invalid || CATEGORY_ID?.invalid">Create</button>
-
+                <div class="subBtn">
+                    <div class="left">
+                    <button type="button" class="btn btn-secondary" (click)="cancelEdit()">Cancel</button>
                     </div>
+                    <div class="right">
+                        <button type="submit" class="btn btn-primary"
+                        [disabled]="NAME?.invalid || DESCRIPTION?.invalid || CATEGORY_ID?.invalid">Confirm Edit</button>
+                    </div>
+
                 </div>
             </form>
         </div>

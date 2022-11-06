@@ -3,43 +3,21 @@
 <div class="container-fluid con1">
     <div class="container con2">
         <div class="row" style="padding: 10px;">
-            <div class="col-12" style=" margin-left:12%">
+            <div class="col-12 btns">
                 <button type="button" class="btn btn-primary" (click)="movieEditor()">Edit</button>
                 &nbsp;
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>
-                <!-- Modal -->
-                <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModal"
-                    aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h6 class="modal-title fs-5" id="exampleModalLabel">Are you sure about deleting this movie?</h6>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <!-- <div class="modal-body">
-                                <h6>Are you sure about deleting this movie?</h6>
-                            </div> -->
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-danger" (click)="deleteMovie()">Confirm Delete</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <button type="button" class="btn btn-danger" (click)="deleteMovie()">Delete</button>
             </div>
         </div>
         <div class="row details">
-            <div class="col-5">
+            <div class="col-5 MImage">
                 <img src="https://test-api.storexweb.com/{{movie.image}}" alt="Card image">
             </div>
-            <div class="col-7">
-                <!-- <h4>id : {{movie.id}}</h4> -->
-                <h2><span style="font-size: 16px !important; font-weight: lighter;">Title:</span> {{movie.name}}</h2>
-                <p><span style="font-size: 16px !important; font-weight: lighter;">Desc:</span> {{movie.description}}
+            <div class="col-7 MDetails">
+                <h2 class="md"><span>Title:</span> {{movie.name}}</h2>
+                <p class="md"><span>Desc:</span> {{movie.description}}
                 </p>
-                <p><span style="font-size: 16px !important; font-weight: lighter;">Category:</span> {{category_id.name}}
+                <p class="md"><span>Category:</span> {{category_id.name}}
                 </p>
             </div>
         </div>

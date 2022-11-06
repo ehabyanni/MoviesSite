@@ -1,7 +1,11 @@
+.container-fluid{
+    background-color: rgb(255, 255, 255);
+}
 .card{
+    background-color: rgba(255, 255, 255, 0);
     border: none;
     text-align: center;
-    margin-bottom: 10px; 
+    margin-bottom: 20px; 
     cursor:pointer;
     img{
         //width:100%; 
@@ -16,8 +20,12 @@
         height: 50px;
         overflow: hidden;
     }
+    .card-body{
+        background-color: #ffffff;
+        border: 2px solid white;
+    }
     &:hover .card-body{
-        background-color: rgb(193, 227, 255);
+        border: 2px solid #e1e1e1;
         border-bottom-left-radius: 5px;
         border-bottom-right-radius: 5px;
     }

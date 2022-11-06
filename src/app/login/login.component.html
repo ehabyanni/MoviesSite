@@ -1,33 +1,35 @@
-<form [formGroup]="loginForm" method="post" (ngSubmit)="onSubmit()" style="background-color: rgb(255, 255, 255); padding: 50px;"
-    id="formID">
-    <div class="col-12 col-sm-6 col-md-6">
+<div class="container-fluid">
+    <div class="container">
+        <div class="row col-7 formRow">
+            <form [formGroup]="loginForm" method="post" (ngSubmit)="onSubmit()" id="formID">
+                <!--email-->
 
-        <!--email-->
+                <div class="col-12">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="text" class="form-control" id="email" placeholder="email" formControlName="email"
+                        [class.is-invalid]="EMAIL?.invalid && EMAIL?.touched">
+                    <div *ngIf="EMAIL?.errors && EMAIL?.touched">
+                        <small class="text-danger" *ngIf="EMAIL?.errors?.['required']">required</small>
+                        <small class="text-danger" *ngIf="EMAIL?.errors?.['minlength']">minimum 10 char</small>
+                    </div>
+                </div>
+                <!--password-->
+                <div class="col-12">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="password"
+                        formControlName="password" [class.is-invalid]="PASSWORD?.invalid && PASSWORD?.touched">
+                    <div *ngIf="PASSWORD?.errors && PASSWORD?.touched">
+                        <small class="text-danger" *ngIf="PASSWORD?.errors?.['required']">required</small>
+                        <small class="text-danger" *ngIf="PASSWORD?.errors?.['pattern']">minimum 4 char</small>
+                    </div>
+                </div>
 
-        <div class="col-11">
-            <label for="email" class="form-label">Email</label>
-            <input type="text" class="form-control" id="email" placeholder="email" formControlName="email"
-                [class.is-invalid]="EMAIL?.invalid && EMAIL?.touched">
-            <div *ngIf="EMAIL?.errors && EMAIL?.touched">
-                <small class="text-danger"*ngIf="EMAIL?.errors?.['required']">required</small>
-                <small class="text-danger" *ngIf="EMAIL?.errors?.['minlength']">min. 2 char</small>
-            </div>
+                <div class="subBtn">
+                    <button type="submit" class="btn btn-primary"
+                        [disabled]="EMAIL?.invalid || PASSWORD?.invalid">login</button>
+                        <a routerLink="/register">Create a new account !</a>
+                </div>
+            </form>
         </div>
     </div>
-
-    <!--password-->
-
-    <div class="col-12 col-sm-6 col-md-6" style="margin-bottom: 20px;">
-        <div class="col-11">
-            <label for="password" class="form-label">Password</label>
-            <input type="password" class="form-control" id="password" placeholder="password" formControlName="password" 
-                [class.is-invalid]="PASSWORD?.invalid && PASSWORD?.touched">
-            <div *ngIf="PASSWORD?.errors && PASSWORD?.touched">
-                <small class="text-danger" *ngIf="PASSWORD?.errors?.['required']">required</small>
-                <small class="text-danger" *ngIf="PASSWORD?.errors?.['pattern']">min. 2 char</small>
-            </div>
-        </div>
-    </div>
-    
-    <button style="margin-left: 30px;" type="submit" class="btn btn-primary" [disabled]="EMAIL?.invalid || PASSWORD?.invalid">login</button>
-</form>
+</div>

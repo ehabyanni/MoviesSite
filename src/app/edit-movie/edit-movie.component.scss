@@ -1,0 +1,20 @@
+.subBtn{
+    padding-top: 50px;
+    text-align: center;
+    .left , .right {
+        width: 50%;
+        float: left;
+        button{
+            display: block;
+            margin: auto;
+        }
+        .btn-secondary{
+            float: right;
+            margin-right: 5px;
+        }
+        .btn-primary{
+            float: left;
+            margin-left: 5px;
+        }
+    }
+}

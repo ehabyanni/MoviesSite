@@ -29,13 +29,14 @@ export class MoviesService {
     return this.http.post<any>(this._url , movie);
   }
 
-  EditMovie(id:any , movie:any){
+  //edit movie
+  EditMovie(id:any , movie:any):Observable<any>{
     return this.http.put(this._url + "/" + id , movie);
   }
 
   //delete movie
-  // deleteMovie(id : number){
-  //   return this.http.delete<any>(this._url + "/" + id);
-  // }
+  deleteMovie(id : any):Observable<any>{
+    return this.http.delete(this._url + "/" + id);
+  }
 
 }

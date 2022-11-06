@@ -18,9 +18,9 @@ export class EditMovieComponent implements OnInit {
     private categoryService: CategoriesService,
     private movieService: MoviesService,
     private http: HttpClient,
-    private activeRoute : ActivatedRoute,
-    private movies:MoviesService,
-    private catService:CategoriesService
+    private activeRoute: ActivatedRoute,
+    private movies: MoviesService,
+    private catService: CategoriesService
   ) { }
 
   movieForm = this.formbuilder.group({
@@ -58,15 +58,14 @@ export class EditMovieComponent implements OnInit {
     }
 
     this.movie_id = this.activeRoute.snapshot.paramMap.get('id');
-
     this.movies.getAllMovies().subscribe(
       data => {
         this.movie = data.message.find((e: any) => e.id == this.movie_id);
         console.log(this.movie);
         this.movieForm.setValue({
-          name : this.movie.name , 
-          description : this.movie.description , 
-          category_id : this.movie.category_id
+          name: this.movie.name,
+          description: this.movie.description,
+          category_id: this.movie.category_id
         })
       }
     )
@@ -76,49 +75,62 @@ export class EditMovieComponent implements OnInit {
         this.categories = data.message;
       }
     )
+
   }
 
-
-  
   //object for storing ediatble Movie Data 
-  formData = new FormData();
-
+  formDataEdit = new FormData();
   //upload image
   imageUpload(event: any) {
-    if(event.target.files.length > 0){
+    if (event.target.files.length > 0) {
       const file = event.target.files[0];
       console.log(file);
-      this.formData.append('image', file);
+      this.formDataEdit.append('image', file);
+      console.log(this.formDataEdit.get('image'));
     }
   }
 
   //editable Movie Object
-  EditMovieData:any = {
-    name : "",
+  EditMovieData: any = {
+    name: "",
     description: "",
-    category_id : "",
+    category_id: "",
   };
 
-
   //creation
-  onSubmit() {
-    this.formData.append('name' , this.EditMovieData.name);
-    this.formData.append('description' , this.EditMovieData.description);
-    this.formData.append('category_id' , this.EditMovieData.category_id);
+  onEditSubmit() {
 
-     console.log(this.EditMovieData.name)
-     console.log(this.EditMovieData.description)
-     console.log(this.EditMovieData.category_id)
-     console.log(this.EditMovieData.image)
+    this.formDataEdit.append('name', this.EditMovieData.name);
+    this.formDataEdit.append('description', this.EditMovieData.description);
+    this.formDataEdit.append('category_id', this.EditMovieData.category_id);
 
-    this.movies.EditMovie(this.movie_id , this.formData).subscribe();
+    var imageCheck = this.formDataEdit.get('image');
+    
+    if(imageCheck != null || undefined){
+      console.log(this.formDataEdit.get('name'));
+      console.log(this.formDataEdit.get('description'));
+      console.log(this.formDataEdit.get('category_id'));
+      console.log(this.formDataEdit.get('image'));
 
-    //window.open('/home' , '_self');
+      this.movies.EditMovie(this.movie_id , this.formDataEdit).subscribe(
+        () => {
+          this.route.navigate(['/home']);
+        }
+      );
+    }
+    else{
+      console.log(this.EditMovieData);
+      this.movies.EditMovie(this.movie_id , this.EditMovieData).subscribe(
+        () => {
+          this.route.navigate(['/home']);
+        }
+      );
+    }
   }
 
 
   //cancel
-  cancelEdit(){
+  cancelEdit() {
     this.route.navigate(['movies', this.movie_id]);
   }
 
