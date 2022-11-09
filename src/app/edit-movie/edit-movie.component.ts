@@ -61,7 +61,7 @@ export class EditMovieComponent implements OnInit {
     this.movies.getAllMovies().subscribe(
       data => {
         this.movie = data.message.find((e: any) => e.id == this.movie_id);
-        console.log(this.movie);
+        //console.log(this.movie);
         this.movieForm.setValue({
           name: this.movie.name,
           description: this.movie.description,
@@ -73,6 +73,7 @@ export class EditMovieComponent implements OnInit {
     this.catService.getAllCategories().subscribe(
       data => {
         this.categories = data.message;
+        //console.log(this.categories);
       }
     )
 
@@ -84,7 +85,7 @@ export class EditMovieComponent implements OnInit {
   imageUpload(event: any) {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
-      console.log(file);
+      // console.log(file);
       this.formDataEdit.append('image', file);
       console.log(this.formDataEdit.get('image'));
     }
@@ -103,16 +104,18 @@ export class EditMovieComponent implements OnInit {
     this.formDataEdit.append('name', this.EditMovieData.name);
     this.formDataEdit.append('description', this.EditMovieData.description);
     this.formDataEdit.append('category_id', this.EditMovieData.category_id);
+    this.formDataEdit.append('_method', 'put');
 
     var imageCheck = this.formDataEdit.get('image');
-
-    console.log(this.EditMovieData);
+    
+    // console.log(this.EditMovieData);
+    // console.log(imageCheck);
     
     if(imageCheck != null || undefined){
-      console.log(this.formDataEdit.get('name'));
-      console.log(this.formDataEdit.get('description'));
-      console.log(this.formDataEdit.get('category_id'));
-      console.log(this.formDataEdit.get('image'));
+      // console.log(this.formDataEdit.get('name'));
+      // console.log(this.formDataEdit.get('description'));
+      // console.log(this.formDataEdit.get('category_id'));
+      // console.log(this.formDataEdit.get('image'));
 
       this.movies.EditMovie(this.movie_id , this.formDataEdit).subscribe(
         () => {
@@ -121,7 +124,7 @@ export class EditMovieComponent implements OnInit {
       );
     }
     else{
-      console.log(this.EditMovieData);
+      console.log('test', this.EditMovieData);
       this.movies.EditMovie(this.movie_id , this.EditMovieData).subscribe(
         () => {
           this.route.navigate(['/home']);

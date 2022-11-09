@@ -11,10 +11,11 @@ export class CategoriesService {
 
   public _url = 'https://test-api.storexweb.com/api/category';
 
-  categories:any = [];
+  //categories:any = [];
 
   getAllCategories():Observable<any>{
-    this.categories = this.http.get(this._url);
-    return this.categories;
+
+    return this.http.get(this._url);
+    
   }
 }
