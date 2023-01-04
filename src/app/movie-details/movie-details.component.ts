@@ -27,6 +27,7 @@ export class MovieDetailsComponent implements OnInit {
     category_id:any = {};
 
   ngOnInit(): void {
+    window.scrollTo(0,0);
     //check if the user authenticated or not
     var token = localStorage.getItem('authToken');
     if(token == null || undefined){

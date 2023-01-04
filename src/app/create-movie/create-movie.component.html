@@ -1,9 +1,10 @@
 <app-header></app-header>
 
 <div class="container-fluid">
-    <div class="container">
+    <div class="container" style=" padding-top: 20px; padding-bottom: 20px;">
         <div class="row">
-            <form [formGroup]="NewMovieForm" method="post" style="padding: 50px;" id="formID" (ngSubmit)="onSubmit()">
+            <form [formGroup]="NewMovieForm" method="post"
+                style="background-color: rgba(255, 255, 255,0.85); padding: 50px;" id="formID" (ngSubmit)="onSubmit()">
                 <div class="row">
                     <!--name-->
                     <div class="col-12 col-sm-12 col-md-6">
@@ -35,7 +36,7 @@
                     </div>
 
                 </div>
-                <div class="row">
+                <div class="row" style="margin-top: 20px;">
                     <!--image-->
                     <div class="col-12 col-sm-12 col-md-6" style="margin-bottom: 20px;">
                         <div class="col-11">
@@ -70,7 +71,7 @@
 
                 <!--create button-->
                 <div class="subBtn">
-                    <button type="submit" class="btn btn-primary"
+                    <button type="submit" class="btn btn-success"
                         [disabled]="NAME?.invalid || DESCRIPTION?.invalid || CATEGORY_ID?.invalid">Create</button>
                 </div>
             </form>
