@@ -14,7 +14,8 @@ const routes: Routes = [
   {path: "home"            , component:HomeComponent},
   {path: "movies/:id"      , component:MovieDetailsComponent},
   {path: "new-movie"       , component:CreateMovieComponent},
-  {path: "edit-movie/:id"  , component: EditMovieComponent}
+  {path: "edit-movie/:id"  , component: EditMovieComponent},
+  {path: '**'              , component: HomeComponent}
 ];
 
 @NgModule({
