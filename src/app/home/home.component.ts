@@ -37,7 +37,6 @@ export class HomeComponent implements OnInit {
     this.movies.getAllMovies().subscribe(
       data => {
         this.allMovies = data.message;
-        console.log(this.allMovies);
       }
     )
 
@@ -45,7 +44,6 @@ export class HomeComponent implements OnInit {
     this.categories.getAllCategories().subscribe(
       dataCAt => {
         this.allCategories = dataCAt.message;
-        console.log(this.allCategories);
       }
     )
   }
@@ -54,7 +52,6 @@ export class HomeComponent implements OnInit {
     this.categories.getAllCategories().subscribe(
       data => {
         this.category_id = data.message.find((c: any) => c.id == this.category_id);
-        console.log(this.category_id);
       }
     )
   }
@@ -68,7 +65,7 @@ export class HomeComponent implements OnInit {
       this.movies.getAllMovies().subscribe(
         dataMovies => {
           this.allMovies = dataMovies.message;
-          console.log(this.allMovies);
+          //console.log(this.allMovies);
         }
       )
     }
@@ -76,7 +73,7 @@ export class HomeComponent implements OnInit {
         this.movies.getCatMovies(categorySelected).subscribe(
           data => {
             this.allMovies = data.message;
-            console.log(this.allMovies);
+            //console.log(this.allMovies);
           }
         )
     }

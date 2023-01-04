@@ -31,7 +31,7 @@ export class MoviesService {
 
   //edit movie
   EditMovie(id:any , movie:any):Observable<any>{
-    return this.http.put<any>(this._url + '/' + id , movie);
+    return this.http.post<any>(this._url + '/' + id , movie);
   }
 
   //delete movie

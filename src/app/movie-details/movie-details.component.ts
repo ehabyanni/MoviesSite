@@ -13,24 +13,24 @@ import { HtmlParser } from '@angular/compiler';
 export class MovieDetailsComponent implements OnInit {
 
   constructor(
-    private http:HttpClient,
-    private movies:MoviesService,
-    private activeRoute:ActivatedRoute,
-    private route:Router,
-    private catService:CategoriesService
-    ) { }
+    private http: HttpClient,
+    private movies: MoviesService,
+    private activeRoute: ActivatedRoute,
+    private route: Router,
+    private catService: CategoriesService
+  ) { }
 
-    movie_id: any ;
+  movie_id: any;
 
-    movie: any = {};
+  movie: any = {};
 
-    category_id:any = {};
+  category_id: any = {};
 
   ngOnInit(): void {
-    window.scrollTo(0,0);
+    window.scrollTo(0, 0);
     //check if the user authenticated or not
     var token = localStorage.getItem('authToken');
-    if(token == null || undefined){
+    if (token == null || undefined) {
       this.route.navigate(['/login']);
     }
 
@@ -38,28 +38,26 @@ export class MovieDetailsComponent implements OnInit {
 
     this.movies.getAllMovies().subscribe(
       data => {
-        this.movie = data.message.find( (e:any) => e.id == this.movie_id);
-        console.log(this.movie)
+        this.movie = data.message.find((e: any) => e.id == this.movie_id);
+        //get category name
+        this.catService.getSingleCategory(this.movie.category_id).subscribe(
+          dataID => {
+            this.category_id = dataID.message;
+          }
+        )
       }
     )
 
-    this.catService.getAllCategories().subscribe(
-      data => {
-        this.category_id = data.message.find( (c:any) => c.id == this.movie.category_id);
-        console.log(this.category_id);
-      }
-    )
-    
   }
 
 
   //Edit Movie
-  movieEditor(){
+  movieEditor() {
     this.route.navigate(['edit-movie', this.movie.id]);
   }
 
   //delete Movie
-  deleteMovie(){
+  deleteMovie() {
     console.log(this.movie_id)
     this.movies.deleteMovie(this.movie_id).subscribe(
       () => {

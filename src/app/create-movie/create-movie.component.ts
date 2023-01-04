@@ -58,7 +58,6 @@ export class CreateMovieComponent implements OnInit {
     this.categoryService.getAllCategories().subscribe(
       data => {
         this.categories = data.message;
-        console.log(this.categories);
       }
     )
   }
@@ -71,7 +70,7 @@ export class CreateMovieComponent implements OnInit {
   imageUpload(event: any) {
     if(event.target.files.length > 0){
       const file = event.target.files[0];
-      console.log(file);
+      // console.log(file);
       this.formData.append('image', file);
     }
   }
@@ -89,11 +88,6 @@ export class CreateMovieComponent implements OnInit {
     this.formData.append('name' , this.newMovieData.name);
     this.formData.append('description' , this.newMovieData.description);
     this.formData.append('category_id' , this.newMovieData.category_id);
-
-      console.log(this.formData.get('name'))
-      console.log(this.formData.get('description'))
-      console.log(this.formData.get('category_id'))
-      //console.log(this.newMovieData.get('image'));
 
     this.http.post('https://test-api.storexweb.com/api/movies', this.formData).subscribe(
       () => {

@@ -38,11 +38,9 @@
             }
 
             .MImage {
-                p {
-                    font-weight: 600;
-                    font-size: 16px;
-                    padding-top: 15px;
-                }
+               img{
+                min-height: 300px;
+               }
             }
 
             .MDetails {
@@ -58,6 +56,7 @@
 
                 h5 {
                     font-size: 18px;
+                    overflow: hidden;
                 }
 
                 p {

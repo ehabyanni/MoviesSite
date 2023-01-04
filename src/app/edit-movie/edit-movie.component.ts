@@ -98,7 +98,7 @@ export class EditMovieComponent implements OnInit {
     category_id: "",
   };
 
-  //creation
+  //creation the new movie
   onEditSubmit() {
 
     this.formDataEdit.append('name', this.EditMovieData.name);
