@@ -1,42 +1,73 @@
-.con1{
-    .con2{
-        padding: 50px;
-        .btns{
+*{
+    font-family: Arima Madurai;
+}
+
+.con1 {
+    background: url(/assets/images/wp2646223-white-background-hd.png) fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding-top: 80px;
+
+    .con2 {
+        min-height: 100vh;
+        .btns {
             display: flex;
             justify-content: center;
             align-items: center;
+
+            .btn {
+                margin-right: 20px;
+                border-radius: 60px;
+                padding: 5px 15px;
+            }
         }
-        .details{
-            .col-5{
+
+        .details {
+            .col-5 {
                 display: flex;
                 justify-content: center;
                 align-items: center;
             }
-            img{
+
+            img {
                 width: 70%;
                 display: block;
                 margin: auto;
                 border-radius: 5px;
             }
-            .MImage{
-                p{
+
+            .MImage {
+                p {
                     font-weight: 600;
                     font-size: 16px;
                     padding-top: 15px;
                 }
             }
-            .MDetails{
+
+            .MDetails {
                 padding-top: 5%;
-                .md{
-                    margin-bottom: 30px;
-                    span{
-                        font-size: 16px !important; 
-                        font-weight: lighter;
-                    }
+                background-color: rgba(255, 255, 255, 0.85);
+                border-radius: 20px;
+
+                h3,
+                h5 {
+                    font-family: Arima Madurai;
+                    color: black;
                 }
+
+                h5 {
+                    font-size: 18px;
+                }
+
+                p {
+                    color: rgb(85, 85, 85);
+                }
+
             }
         }
-        .backHome{
+
+        .backHome {
             padding: 50px;
             text-align: center;
         }

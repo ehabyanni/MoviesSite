@@ -4,7 +4,7 @@
             <form [formGroup]="loginForm" method="post" (ngSubmit)="onSubmit()" id="formID">
                 <!--email-->
 
-                <div class="col-12">
+                <div class="col-12" style="margin-top: 20px;">
                     <label for="email" class="form-label">Email</label>
                     <input type="text" class="form-control" id="email" placeholder="email" formControlName="email"
                         [class.is-invalid]="EMAIL?.invalid && EMAIL?.touched">
@@ -14,20 +14,20 @@
                     </div>
                 </div>
                 <!--password-->
-                <div class="col-12">
+                <div class="col-12" style="margin-top: 20px;">
                     <label for="password" class="form-label">Password</label>
                     <input type="password" class="form-control" id="password" placeholder="password"
                         formControlName="password" [class.is-invalid]="PASSWORD?.invalid && PASSWORD?.touched">
                     <div *ngIf="PASSWORD?.errors && PASSWORD?.touched">
                         <small class="text-danger" *ngIf="PASSWORD?.errors?.['required']">required</small>
-                        <small class="text-danger" *ngIf="PASSWORD?.errors?.['pattern']">minimum 4 char</small>
+                        <small class="text-danger" *ngIf="PASSWORD?.errors?.['minLength']">minimum 4 char</small>
                     </div>
                 </div>
 
                 <div class="subBtn">
                     <button type="submit" class="btn btn-primary"
                         [disabled]="EMAIL?.invalid || PASSWORD?.invalid">login</button>
-                        <a routerLink="/register">Create a new account !</a>
+                    <a routerLink="/register">Create a new account !</a>
                 </div>
             </form>
         </div>

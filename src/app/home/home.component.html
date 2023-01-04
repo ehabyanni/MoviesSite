@@ -1,8 +1,9 @@
 <app-header></app-header>
 <div class="container-fluid">
-    <div class="container" style="padding-top: 20px;">
+    <div class="container">
         <div class="row" style="margin-bottom: 50px;">
-            <select class="form-select" aria-label="Default select example" style="width: 400px; margin: auto; text-align: center;" (change)="showCategory($event)">
+            <select class="form-select" aria-label="Default select example"
+                style="width: 400px; margin: auto; text-align: center;" (change)="showCategory($event)">
                 <option value="all"> - All Movies -</option>
                 <option value="{{cat.id}}" *ngFor="let cat of allCategories">
                     {{cat.name}}

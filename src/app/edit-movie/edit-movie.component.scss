@@ -1,20 +1,46 @@
-.subBtn{
-    padding-top: 50px;
-    text-align: center;
-    .left , .right {
-        width: 50%;
-        float: left;
-        button{
-            display: block;
-            margin: auto;
+* {
+    font-family: Arima Madurai;
+}
+
+.container-fluid {
+    background: url(/assets/images/wp2646223-white-background-hd.png) fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding-top: 80px;
+
+    .container {
+        min-height: 100vh;
+        label{
+            color: black;
+            font-size: 18px;
         }
-        .btn-secondary{
-            float: right;
-            margin-right: 5px;
-        }
-        .btn-primary{
-            float: left;
-            margin-left: 5px;
+
+        .subBtn {
+            padding-top: 50px;
+            text-align: center;
+
+            .left,
+            .right {
+                width: 50%;
+                float: left;
+
+                button {
+                    display: block;
+                    margin: auto;
+                    border-radius: 60px;
+                }
+
+                .btn-secondary {
+                    float: right;
+                    margin-right: 5px;
+                }
+
+                .btn-success {
+                    float: left;
+                    margin-left: 5px;
+                }
+            }
         }
     }
 }

@@ -4,7 +4,7 @@
             <form [formGroup]="registerForm" method="post" (ngSubmit)="onSubmit()" id="formID">
 
                 <!--name-->
-                <div class="col-12">
+                <div class="col-12" style="margin-top: 10px;">
                     <label for="user" class="form-label">Username</label>
                     <input type="text" class="form-control" placeholder="user" formControlName="user"
                         [class.is-invalid]="USER?.invalid && USER?.touched">
@@ -15,7 +15,7 @@
                 </div>
 
                 <!--email-->
-                <div class="col-12">
+                <div class="col-12" style="margin-top: 10px;">
                     <label for="email" class="form-label">Email</label>
                     <input type="text" class="form-control" placeholder="email" formControlName="email"
                         [class.is-invalid]="EMAIL?.invalid && EMAIL?.touched">
@@ -27,7 +27,7 @@
 
 
                 <!--password-->
-                <div class="col-12">
+                <div class="col-12" style="margin-top: 10px;">
                     <label for="password" class="form-label">Password</label>
                     <input type="password" class="form-control" id="password" placeholder="password"
                         formControlName="password" [class.is-invalid]="PASSWORD?.invalid && PASSWORD?.touched">
@@ -41,7 +41,7 @@
                 <div class="subBtn">
                     <button type="submit" class="btn btn-primary"
                         [disabled]="USER?.invalid || EMAIL?.invalid || PASSWORD?.invalid">Register</button>
-                    <a routerLink="/login" >Already have an account.</a>
+                    <a routerLink="/login">Already have an account.</a>
                 </div>
             </form>
         </div>

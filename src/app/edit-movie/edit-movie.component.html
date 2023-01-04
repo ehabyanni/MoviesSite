@@ -2,8 +2,8 @@
 
 <div class="container-fluid">
     <div class="container" style=" padding-top: 20px; padding-bottom: 20px;">
-        <div class="row" style="background-color: white;">
-            <form [formGroup]="movieForm" method="post" style="background-color: rgb(255, 255, 255); padding: 50px;"
+        <div class="row" style="background-color: rgba(255, 255, 255, 0);">
+            <form [formGroup]="movieForm" method="post" style="background-color: rgba(255, 255, 255,0.85); padding: 50px;"
                 id="formID" (ngSubmit)="onEditSubmit()">
                 <div class="row">
                     <!--name-->
@@ -36,7 +36,7 @@
                     </div>
 
                 </div>
-                <div class="row">
+                <div class="row" style="margin-top: 50px;">
                     <!--image-->
                     <div class="col-12 col-sm-12 col-md-6" style="margin-bottom: 20px;">
                         <div class="row col-11">
@@ -75,7 +75,7 @@
                     <button type="button" class="btn btn-secondary" (click)="cancelEdit()">Cancel</button>
                     </div>
                     <div class="right">
-                        <button type="submit" class="btn btn-primary"
+                        <button type="submit" class="btn btn-success"
                         [disabled]="NAME?.invalid || DESCRIPTION?.invalid || CATEGORY_ID?.invalid">Confirm Edit</button>
                     </div>
 

@@ -1,25 +1,79 @@
-.container-fluid{
-    background-color: rgb(246, 246, 246);
-    border-bottom: 1px solid #e6e6e6;
-    .head{
-        height:fit-content; 
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
-        .coII{
-            display: flex; 
-            justify-content: center; 
-            align-items: center;
-            p{
-                font-size: 36px;
-                font-weight: 600px;
-                color: rgb(0, 0, 0);
-            }
-            .btn{
-                padding-right: 10px;
-                padding-left: 10px;
-            }
-            .btn-link{
-                text-decoration: none;
+//shared variable
+$primaryColor: #18191A;
+$secodaryColor: #242526;
+
+.container-fluid {
+    background-color: rgb(255, 255, 255);
+    position: fixed;
+    z-index: 10;
+
+    .container {
+        height: 70px;
+        .head {
+            height: 100%;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+
+            .coII {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                img{
+                    width: 200px;
+                    background-color: rgb(255, 255, 255);
+                    cursor: pointer;
+                    transition: all 0.3s ease-in-out;
+                    &:hover{
+                        transform: scale(0.95);
+                    }
+                }
+
+                .btn-primary {
+                    padding-right: 15px;
+                    padding-left: 15px;
+                    border-radius: 60px;
+
+                    &:hover {
+                        background-position: right center;
+                        background-size: 200% auto;
+                        -webkit-animation: pulse 2s infinite;
+                        animation: pulse512 1.5s infinite;
+                    }
+
+                    @keyframes pulse512 {
+                        0% {
+                            box-shadow: 0 0 0 0 #05bada66;
+                        }
+
+                        70% {
+                            box-shadow: 0 0 0 10px rgb(218 103 68 / 0%);
+                        }
+
+                        100% {
+                            box-shadow: 0 0 0 0 rgb(218 103 68 / 0%);
+                        }
+                    }
+                }
+
+                .btn-link {
+                    text-decoration: none;
+                    color: $primaryColor;
+                    border-radius: 60px;
+                    transition: all 0.5s ease-in-out;
+                    i{
+                        color: #535353 !important;
+                    }
+
+                    &:hover {
+                        background-color: #e1e1e1;
+                        border-radius: 60px;
+
+                        i {
+                            position: relative;
+                            left: 5px;
+                        }
+                    }
+                }
             }
         }
     }

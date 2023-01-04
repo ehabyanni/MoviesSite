@@ -38,14 +38,14 @@ export class MovieDetailsComponent implements OnInit {
     this.movies.getAllMovies().subscribe(
       data => {
         this.movie = data.message.find( (e:any) => e.id == this.movie_id);
-        //console.log(this.movie)
+        console.log(this.movie)
       }
     )
 
     this.catService.getAllCategories().subscribe(
       data => {
         this.category_id = data.message.find( (c:any) => c.id == this.movie.category_id);
-        console.log(this.movie);
+        console.log(this.category_id);
       }
     )
     

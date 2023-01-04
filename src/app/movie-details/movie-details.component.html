@@ -2,10 +2,9 @@
 
 <div class="container-fluid con1">
     <div class="container con2">
-        <div class="row" style="padding: 10px;">
+        <div class="row" style="padding: 10px; margin-bottom: 10px;">
             <div class="col-12 btns">
-                <button type="button" class="btn btn-primary" (click)="movieEditor()">Edit</button>
-                &nbsp;
+                <button type="button" class="btn btn-success" (click)="movieEditor()">Edit</button>
                 <button type="button" class="btn btn-danger" (click)="deleteMovie()">Delete</button>
             </div>
         </div>
@@ -13,16 +12,23 @@
             <div class="col-5 MImage">
                 <img src="https://test-api.storexweb.com/{{movie.image}}" alt="Card image">
             </div>
-            <div class="col-7 MDetails">
-                <h2 class="md"><span>Title:</span> {{movie.name}}</h2>
-                <p class="md"><span>Desc:</span> {{movie.description}}
-                </p>
-                <p class="md"><span>Category:</span> {{category_id.name}}
-                </p>
+            <div class="row col-7 MDetails">
+                <div class="row">
+                    <p class="col-2">Title:</p>
+                    <h3 class="col-10">{{movie.name}}</h3>
+                </div>
+                <div class="row">
+                    <p class="col-2">Description:</p>
+                    <h5 class="col-10">{{movie.description}}</h5>
+                </div>
+                <div class="row">
+                    <p class="col-2">Category:</p>
+                    <h5 class="col-10">{{category_id.name}}</h5>
+                </div>
             </div>
         </div>
-        <div class="row backHome">
+        <!-- <div class="row backHome">
             <a routerLink="/home">back to home</a>
-        </div>
+        </div> -->
     </div>
 </div>
